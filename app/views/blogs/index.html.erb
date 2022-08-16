@@ -1,0 +1,25 @@
+<h1>this is Home</h1>
+
+<%= link_to "註冊" , sign_up_users_path  %>
+<%= link_to "新增文章" ,new_article_path  %>
+
+<table>
+  <thread> 
+    <tr>
+      <td>Title</td>
+      <td>Content</td>
+      <td>Action</td>
+    </tr>
+  </thread>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= link_to article.title ,article_path(article)   %></td>
+        <td><%= article.content %></td>
+        <td><%= link_to "update" ,edit_article_path(article.id)  %></td>
+        <td><%= link_to "delete" ,article_path(article),method:"delete"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
